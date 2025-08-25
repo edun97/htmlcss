@@ -1,8 +1,8 @@
 <?php
 // Configurações do banco de dados
-$servername = "https://edun97.github.io/SQL/"; // geralmente localhost no WAMP
+$servername = "hopper.proxy.rlwy.net:58108/railway"; // geralmente localhost no WAMP
 $username = "root";        // usuário padrão do WAMP
-$password = "";            // senha padrão do WAMP é vazia
+$password = "itsQRtNWTegfjbieAYSXhoDzEshKOaOo";            // senha padrão do WAMP é vazia
 $dbname = "cadastro";      // nome do banco de dados
 
 // Criar conexão
