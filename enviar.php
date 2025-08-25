@@ -1,6 +1,6 @@
 <?php
 // Configurações do banco de dados
-$servername = "localhost"; // geralmente localhost no WAMP
+$servername = "https://edun97.github.io/SQL/"; // geralmente localhost no WAMP
 $username = "root";        // usuário padrão do WAMP
 $password = "";            // senha padrão do WAMP é vazia
 $dbname = "cadastro";      // nome do banco de dados
