@@ -1,6 +1,6 @@
 <?php
 // Configurações do banco de dados
-$servername = "hopper.proxy.rlwy.net"; // geralmente localhost no WAMP
+$servername = "mysql.railway.internal"; // geralmente localhost no WAMP
 $username = "root";        // usuário padrão do WAMP
 $password = "itsQRtNWTegfjbieAYSXhoDzEshKOaOo";            // senha padrão do WAMP é vazia
 $dbname = "cadastro";      // nome do banco de dados
