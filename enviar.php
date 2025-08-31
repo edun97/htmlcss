@@ -29,7 +29,7 @@ if ($stmt->execute()) {
 } else {
     echo "Erro: " . $stmt->error;
 }
-
+${{ MySQL.MYSQL_URL }}
 // Fechar conexão
 $stmt->close();
 $conn->close();
