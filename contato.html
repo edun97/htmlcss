@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jornal Tech</title>
+  <title>Jornal Tech - Contato</title>
   <link rel="stylesheet" href="./css/estilo.css">
 </head>
 <body>
@@ -18,16 +18,25 @@
 </header>
   
   <main class="menu">
+    <div class="form-container">
     <article>
-        <h1>Inteligência Artificial revoluciona ensino</h1>
-        <p>A IA permite que a educação deixe de ser padronizada para se tornar adaptativa. 
-        Por meio da análise de dados em tempo real, algoritmos são capazes de identificar
-        lacunas no conhecimento dos alunos, sugerir trilhas de aprendizagem personalizadas
-        e ajustar o ritmo do conteúdo conforme o desempenho individual.</p>
-    </article>
-    <article>
-      <h2>Publicidade: Curso de HTML</h2>
-      <iframe width="400" height="280" src="https://www.youtube.com/embed/sj0p9O85AIg?list=PL2Fdisxwzt_cajoGVWTx44wM6Ht09QJ3A" title="Curso de HTML Completo: Aula 01 - Criando novo projeto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h1>Contato</h1>
+        <form action="#" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" name="idade" min="0" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+    </div>
     </article>
   </main>
   <aside>

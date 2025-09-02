@@ -1,0 +1,206 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Corpo */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* Header e nav */
+  header {
+    background-color: #005f73;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  nav.navi {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  nav.navi a {
+    background-color: #0a9396;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav.navi a:hover,
+  nav.navi a:focus {
+    background-color: #94d2bd;
+    color: #003d33;
+    outline: none;
+  }
+  
+  /* Main content */
+  main.menu {
+    flex: 3;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    min-width: 280px;
+  }
+  
+  main.menu article + article {
+    margin-top: 30px;
+  }
+  
+  /* Textos */
+  h1, h2, h3, h4 {
+    margin-bottom: 15px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  /* Aside */
+  aside {
+    flex: 1;
+    background-color: #ee9b00;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    min-width: 220px;
+  }
+  
+  aside ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  aside ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Section Links úteis */
+  section.sobre {
+    margin-top: 30px;
+    background-color: #005f73;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    min-width: 280px;
+    width: 100%;
+  }
+  
+  section.sobre ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  section.sobre ul li {
+    margin-bottom: 10px;
+  }
+  
+  section.sobre a {
+    color: #94d2bd;
+    text-decoration: none;
+  }
+  
+  section.sobre a:hover,
+  section.sobre a:focus {
+    text-decoration: underline;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #555;
+    width: 100%;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+  
+    main.menu, aside, section.sobre {
+      min-width: 100%;
+      margin-right: 0;
+    }
+  }
+  .tech {
+      text-align: center;
+      color: white;
+  }
+  img {
+    max-width: 600px;
+    max-height: 400px;
+    height: auto;
+  }
+  .form-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.form-container input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-container button:hover {
+  background: #0056b3;
+}
