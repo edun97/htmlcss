@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jornal Tech - Tecnologia</title>
+  <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+  <header>
+  <h1 class="tech"> JORNAL TECH </h1>
+  <nav class="navi">
+      <a href="index.html">Início</a>
+      <a href="tecnologia.html">Tecnologia</a>
+      <a href="educacao.html">Educação</a>
+      <a href="contato.html">contato</a>
+  </nav class="navi">
+</header>
+  
+  <main class="menu">
+    <article>
+        <h1>Aparelho lê sinais cerebrais e permite controlar objetos com a mente; veja como ele funciona</h1>
+        <p>A sua concentração pode fazer objetos levitarem, mesmo que só por alguns segundos. Isso é feito com um dispositivo que capta sinais cerebrais e os converte em comandos para outro aparelho.
+
+Criado nos Estados Unidos, ele é anunciado como uma ferramenta educativa, para melhorar níveis de atenção, e de bem-estar, para práticas de meditação.</p>
+        <img src="https://s2-g1.glbimg.com/eVAkE3Qr83f9Tkge5Mi3o-uWhb0=/0x0:450x380/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2025/9/r/RB0mmhQNuGKvbSXbws9w/neurosky-dispositivo.jpg">
+    </article>
+  </main>
+  <aside>
+        <h3>Últimas Notícias</h3>
+        <ul id="news-list"><!-- Preenchido via JS --></ul>
+        <small id="stamp"></small>
+  </aside>
+  <section class="Sobre">
+        <h4>Links úteis</h4>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="politica.html">Política de privacidade</a></li>
+        </ul>
+  </section>
+  
+  <footer>© 2025 Jornal Tech</footer>
+<script>
+    const CATALOGO = [
+      { title: ' - G1', url: 'https://g1.globo.com/' },
+      { title: ' - UOL', url: 'https://noticias.uol.com.br/' },
+      { title: ' - Folha', url: 'https://www1.folha.uol.com.br/ultimas-noticias/' },
+      { title: ' - Estadão', url: 'https://www.estadao.com.br/ultimas/' },
+      { title: ' - CNN Brasil', url: 'https://www.cnnbrasil.com.br/ao-vivo/' },
+      { title: ' - BBC Brasil', url: 'https://www.bbc.com/portuguese' },
+      { title: ' - Valor Econômico', url: 'https://valor.globo.com/ultimas-noticias/' },
+      { title: ' - TechTudo — Tecnologia', url: 'https://www.techtudo.com.br/ultimas-noticias/' },
+      { title: ' - Canaltech — Tech', url: 'https://canaltech.com.br/ultimas/' }
+    ];
+
+    function seedForToday() {
+      const now = new Date();
+      return Math.floor(now.setHours(0,0,0,0) / 86400000);
+    }
+
+    function pickDailyLinks(qtd = 5) {
+      const seed = seedForToday();
+      const links = [];
+      for (let i = 0; i < qtd; i++) {
+        const idx = (seed + i * 3) % CATALOGO.length;
+        links.push(CATALOGO[idx]);
+      }
+      return links;
+    }
+
+    function hostFrom(url) {
+      try { return new URL(url).host.replace('www.', ''); } catch { return ''; }
+    }
+
+    function render() {
+      const list = document.getElementById('news-list');
+      list.innerHTML = '';
+      const items = pickDailyLinks(5);
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href=\"${item.url}\" target=\"_blank\"><span class=\"host\">${hostFrom(item.url)}</span><span class=\"title\">${item.title}</span></a>`;
+        list.appendChild(li);
+      });
+      document.getElementById('stamp').textContent = 'Atualizado em ' + new Date().toLocaleDateString();
+    }
+
+    render();
+  </script>
+</body>
+
+
+</html>
+
+
+
