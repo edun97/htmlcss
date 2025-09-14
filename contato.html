@@ -66,9 +66,9 @@
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9peG9yaGV0Z3lsc2RnZHB4c3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NjE5NTcsImV4cCI6MjA3MzQzNzk1N30.nuZmY4_iNKiXKURKOsGHZFJkMeXC3iA0mrjNSZ24FBg";        // substitua pela sua chave anon
     const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // -------- FUNÇÃO PARA LISTAR OS CONTATOS --------
+    // --- Função para carregar contatos ---
     async function carregarContatos() {
-      const { data, error } = await supabase
+      const { data, error } = await client
         .from("contatos")
         .select("*")
         .order("created_at", { ascending: false });
@@ -94,7 +94,7 @@
       });
     }
 
-    // -------- EVENTO DE SUBMIT DO FORMULÁRIO --------
+    // --- Evento de submit do formulário ---
     document.getElementById("formContato").addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -103,7 +103,7 @@
       const email = document.getElementById("email").value;
       const telefone = document.getElementById("telefone").value;
 
-      const { error } = await supabase
+      const { error } = await client
         .from("contatos")
         .insert([{ nome, idade, email, telefone }]);
 
@@ -112,14 +112,14 @@
       } else {
         alert("Contato enviado com sucesso!");
         e.target.reset();
-        carregarContatos(); // recarrega a lista após inserir
+        carregarContatos(); // atualiza lista após envio
       }
     });
 
-    // -------- CHAMA LISTA AO ABRIR A PÁGINA --------
+    // --- Carregar contatos ao abrir a página ---
     carregarContatos();
 
-    // -------- SUA PARTE DE LINKS DIÁRIOS --------
+    // --- Sua parte de links diários ---
     const CATALOGO = [
       { title: ' - G1', url: 'https://g1.globo.com/' },
       { title: ' - UOL', url: 'https://noticias.uol.com.br/' },
@@ -167,6 +167,7 @@
   </script>
 </body>
 </html>
+
 
 
 
