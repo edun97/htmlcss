@@ -60,10 +60,11 @@
   <script src="https://unpkg.com/@supabase/supabase-js"></script>
 
   <script>
-    // -------- CONFIGURAÇÃO DO SUPABASE --------
+       // -------- CONFIGURAÇÃO DO SUPABASE --------
+    const { createClient } = supabase;
     const SUPABASE_URL = "https://oixorhetgylsdgdpxsvt.supabase.co";  // substitua pelo seu
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9peG9yaGV0Z3lsc2RnZHB4c3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NjE5NTcsImV4cCI6MjA3MzQzNzk1N30.nuZmY4_iNKiXKURKOsGHZFJkMeXC3iA0mrjNSZ24FBg";        // substitua pela sua chave anon
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
     // -------- FUNÇÃO PARA LISTAR OS CONTATOS --------
     async function carregarContatos() {
@@ -166,6 +167,7 @@
   </script>
 </body>
 </html>
+
 
 
 
