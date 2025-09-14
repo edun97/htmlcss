@@ -8,52 +8,134 @@
 </head>
 <body>
   <header>
-  <h1 class="tech"> JORNAL TECH </h1>
-  <nav class="navi">
-      <a href="index.html">Início</a>
-      <a href="tecnologia.html">Tecnologia</a>
-      <a href="educacao.html">Educação</a>
-      <a href="contato.html">contato</a>
-  </nav class="navi">
-</header>
+    <h1 class="tech"> JORNAL TECH </h1>
+    <nav class="navi">
+        <a href="index.html">Início</a>
+        <a href="tecnologia.html">Tecnologia</a>
+        <a href="educacao.html">Educação</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+  </header>
   
   <main class="menu">
     <div class="form-container">
-    <article>
+      <article>
         <h1>Contato</h1>
-        <form action="#" method="post">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
+        <form id="formContato">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
 
-      <label for="idade">Idade:</label>
-      <input type="number" id="idade" name="idade" min="0" required>
+          <label for="idade">Idade:</label>
+          <input type="number" id="idade" name="idade" min="0" required>
 
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
 
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
 
-      <button type="submit">Enviar</button>
-    </form>
+          <button type="submit">Enviar</button>
+        </form>
+      </article>
     </div>
-    </article>
+
+    <!-- Tabela para listar contatos -->
+    <section>
+      <h2>Lista de Contatos</h2>
+      <table border="1" cellpadding="5" id="tabelaContatos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
   </main>
+
   <aside>
-        <h3>Últimas Notícias</h3>
-        <ul id="news-list"><!-- Preenchido via JS --></ul>
-        <small id="stamp"></small>
+    <h3>Últimas Notícias</h3>
+    <ul id="news-list"><!-- Preenchido via JS --></ul>
+    <small id="stamp"></small>
   </aside>
+
   <section class="Sobre">
-        <h4>Links úteis</h4>
-        <ul>
-          <li><a href="sobre.html">Sobre nós</a></li>
-          <li><a href="politica.html">Política de privacidade</a></li>
-        </ul>
+    <h4>Links úteis</h4>
+    <ul>
+      <li><a href="sobre.html">Sobre nós</a></li>
+      <li><a href="politica.html">Política de privacidade</a></li>
+    </ul>
   </section>
   
   <footer>© 2025 Jornal Tech</footer>
-<script>
+
+  <!-- SDK do Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js"></script>
+
+  <script>
+    // -------- CONFIGURAÇÃO DO SUPABASE --------
+    const SUPABASE_URL = "https://oixorhetgylsdgdpxsvt.supabase.co";  // substitua pelo seu
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9peG9yaGV0Z3lsc2RnZHB4c3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NjE5NTcsImV4cCI6MjA3MzQzNzk1N30.nuZmY4_iNKiXKURKOsGHZFJkMeXC3iA0mrjNSZ24FBg";        // substitua pela sua chave anon
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    // -------- FUNÇÃO PARA LISTAR OS CONTATOS --------
+    async function carregarContatos() {
+      const { data, error } = await supabase
+        .from("contatos")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Erro ao carregar contatos:", error.message);
+        return;
+      }
+
+      const tbody = document.querySelector("#tabelaContatos tbody");
+      tbody.innerHTML = "";
+
+      data.forEach(contato => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${contato.nome}</td>
+          <td>${contato.idade}</td>
+          <td>${contato.email}</td>
+          <td>${contato.telefone}</td>
+          <td>${new Date(contato.created_at).toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // -------- EVENTO DE SUBMIT DO FORMULÁRIO --------
+    document.getElementById("formContato").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const idade = document.getElementById("idade").value;
+      const email = document.getElementById("email").value;
+      const telefone = document.getElementById("telefone").value;
+
+      const { error } = await supabase
+        .from("contatos")
+        .insert([{ nome, idade, email, telefone }]);
+
+      if (error) {
+        alert("Erro ao enviar: " + error.message);
+      } else {
+        alert("Contato enviado com sucesso!");
+        e.target.reset();
+        carregarContatos(); // recarrega a lista após inserir
+      }
+    });
+
+    // -------- CHAMA LISTA AO ABRIR A PÁGINA --------
+    carregarContatos();
+
+    // -------- SUA PARTE DE LINKS DIÁRIOS --------
     const CATALOGO = [
       { title: ' - G1', url: 'https://g1.globo.com/' },
       { title: ' - UOL', url: 'https://noticias.uol.com.br/' },
@@ -91,7 +173,7 @@
       const items = pickDailyLinks(5);
       items.forEach(item => {
         const li = document.createElement('li');
-        li.innerHTML = `<a href=\"${item.url}\" target=\"_blank\"><span class=\"host\">${hostFrom(item.url)}</span><span class=\"title\">${item.title}</span></a>`;
+        li.innerHTML = `<a href="${item.url}" target="_blank"><span class="host">${hostFrom(item.url)}</span><span class="title">${item.title}</span></a>`;
         list.appendChild(li);
       });
       document.getElementById('stamp').textContent = 'Atualizado em ' + new Date().toLocaleDateString();
@@ -100,9 +182,4 @@
     render();
   </script>
 </body>
-
-
 </html>
-
-
-
