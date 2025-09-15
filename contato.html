@@ -10,10 +10,10 @@
   <header>
     <h1 class="tech"> JORNAL TECH </h1>
     <nav class="navi">
-        <a href="index.html">Início</a>
-        <a href="tecnologia.html">Tecnologia</a>
-        <a href="educacao.html">Educação</a>
-        <a href="contato.html">Contato</a>
+      <a href="index.html">Início</a>
+      <a href="tecnologia.html">Tecnologia</a>
+      <a href="educacao.html">Educação</a>
+      <a href="contato.html">Contato</a>
     </nav>
   </header>
   
@@ -21,7 +21,7 @@
     <div class="form-container">
       <article>
         <h1>Contato</h1>
-        <form id="formContato">
+        <form id="contato-form">
           <label for="nome">Nome:</label>
           <input type="text" id="nome" name="nome" required>
 
@@ -38,7 +38,14 @@
         </form>
       </article>
     </div>
+
+    <!-- NOVA SEÇÃO PARA LISTAR OS CONTATOS -->
+    <section>
+      <h2>Lista de Contatos</h2>
+      <div id="tabela-contatos">Carregando...</div>
+    </section>
   </main>
+
   <aside>
     <h3>Últimas Notícias</h3>
     <ul id="news-list"><!-- Preenchido via JS --></ul>
@@ -58,42 +65,48 @@
   <!-- SDK do Supabase -->
   <script src="https://unpkg.com/@supabase/supabase-js"></script>
   <script>
-    // --- Configuração do Supabase ---
+    // Conexão com Supabase
     const { createClient } = supabase;
-    const SUPABASE_URL = "https://oixorhetgylsdgdpxsvt.supabase.co";  // troque pelo seu Project URL
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9peG9yaGV0Z3lsc2RnZHB4c3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NjE5NTcsImV4cCI6MjA3MzQzNzk1N30.nuZmY4_iNKiXKURKOsGHZFJkMeXC3iA0mrjNSZ24FBg";         // troque pela sua anon public key
+    const SUPABASE_URL = "https://oixorhetgylsdgdpxsvt.supabase.co"; // substitua pelo seu
+    const SUPABASE_KEY = "SeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9peG9yaGV0Z3lsc2RnZHB4c3Z0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NjE5NTcsImV4cCI6MjA3MzQzNzk1N30.nuZmY4_iNKiXKURKOsGHZFJkMeXC3iA0mrjNSZ24FBg"; // substitua pela sua anon key
     const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // --- Função para carregar contatos ---
+    // Carregar contatos do Supabase
     async function carregarContatos() {
       const { data, error } = await client
         .from("contatos")
         .select("*")
-        .order("created_at", { ascending: false });
+        .order("id", { ascending: false });
+
+      const container = document.getElementById("tabela-contatos");
 
       if (error) {
-        console.error("Erro ao carregar contatos:", error.message);
+        console.error(error);
+        container.innerHTML = "<p>Erro ao carregar contatos.</p>";
         return;
       }
 
-      const tbody = document.querySelector("#tabelaContatos tbody");
-      tbody.innerHTML = "";
+      if (!data || data.length === 0) {
+        container.innerHTML = "<p>Nenhum contato encontrado.</p>";
+        return;
+      }
 
-      data.forEach(contato => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${contato.nome}</td>
-          <td>${contato.idade}</td>
-          <td>${contato.email}</td>
-          <td>${contato.telefone}</td>
-          <td>${new Date(contato.created_at).toLocaleString()}</td>
-        `;
-        tbody.appendChild(tr);
+      let html = "<table border='1' cellpadding='5'><tr><th>Nome</th><th>Idade</th><th>Email</th><th>Telefone</th></tr>";
+      data.forEach(c => {
+        html += `<tr>
+                  <td>${c.nome}</td>
+                  <td>${c.idade}</td>
+                  <td>${c.email}</td>
+                  <td>${c.telefone}</td>
+                 </tr>`;
       });
+      html += "</table>";
+
+      container.innerHTML = html;
     }
 
-    // --- Evento de submit do formulário ---
-    document.getElementById("formContato").addEventListener("submit", async (e) => {
+    // Enviar formulário para Supabase
+    document.getElementById("contato-form").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const nome = document.getElementById("nome").value;
@@ -106,18 +119,16 @@
         .insert([{ nome, idade, email, telefone }]);
 
       if (error) {
-        alert("Erro ao enviar: " + error.message);
+        alert("Erro ao salvar contato!");
+        console.error(error);
       } else {
-        alert("Contato enviado com sucesso!");
+        alert("Contato salvo com sucesso!");
         e.target.reset();
-        carregarContatos(); // atualiza lista após envio
+        carregarContatos();
       }
     });
 
-    // --- Carregar contatos ao abrir a página ---
-    carregarContatos();
-
-    // --- Sua parte de links diários ---
+    // Notícias (mantive seu código original)
     const CATALOGO = [
       { title: ' - G1', url: 'https://g1.globo.com/' },
       { title: ' - UOL', url: 'https://noticias.uol.com.br/' },
@@ -162,6 +173,7 @@
     }
 
     render();
+    carregarContatos();
   </script>
 </body>
 </html>
