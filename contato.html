@@ -40,7 +40,7 @@
     </div>
 
     <!-- NOVA SEÇÃO PARA LISTAR OS CONTATOS -->
-    <section>
+    // <section>
       <h2>Lista de Contatos</h2>
       <div id="tabela-contatos">Carregando...</div>
     </section>
@@ -72,7 +72,7 @@
     const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
     // Carregar contatos do Supabase
-    async function carregarContatos() {
+    // async function carregarContatos() {
       const { data, error } = await client
         .from("contatos")
         .select("*")
@@ -177,4 +177,5 @@
   </script>
 </body>
 </html>
+
 
