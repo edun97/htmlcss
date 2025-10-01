@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Misa e Clarinha — Produtos Artesanais</title>
+  <meta name="description" content="Loja artesanal Misa e Clarinha — produtos feitos à mão. Veja catálogo, depoimentos e compre via WhatsApp."/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="img/Logo.png" alt="Logo Misa & Clarinha" style="height:48px; width:auto; margin-right:12px;">
+        <div class="logo">Misa & Clarinha</div>
+        <div>
+          <p class="muted">Feitos à mão • Envio para todo Brasil • Amigurumis Personalizados</p>
+        </div>
+      </div>
+      <nav>
+        <a href="produtos.html">Produtos</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+        <a href="https://www.instagram.com/misaeclarinha" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT: Product showcase -->
+      <section>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div class="small muted">Novo lançamento</div>
+              <h2 class="title">Kit Especial - [Gota e Faísca]</h2>
+              <div class="price">R$ 89,90</div>
+            </div>
+            <div class="chip">Envio 24-72h</div>
+          </div>
+
+          <div class="gallery" style="margin-top:14px;">
+            <!-- substitua src pelas fotos reais -->
+            <img src="img/kit.jpg" alt="Kit composto pelos personagens do Filme Divertidamente 2, Faísca e Gota" onclick="openLightbox(this)" style="grid-column:span 2; height:360px;">
+          </div>
+
+          <p class="desc">
+            <center>Clique na imagem para ampliar. <br><br></center>
+            Kit com dois personagens do filme "Divertidamente 2" composto pelo Gota e Faísca, lindos, não perca essa incrível promoção!
+          </p>
+
+          <div class="info-list">
+            <div class="chip">Feito à mão</div>
+            <div class="chip">Pagamento: Pix, Cartão ou Transferência</div>
+            <div class="chip">Embalagem para presente</div>
+          </div>
+
+          <div class="buy-row">
+            <!-- Link pro WhatsApp: ajuste o número com DDI+DDD sem espaços -->
+            <a class="btn btn-primary" href="https://wa.me/5511913303589?text=Ol%C3%A1%2C+Gostaria+de+fazer+um+orçamento" target="_blank" rel="noopener">
+              Comprar pelo WhatsApp
+            </a>
+            <button class="btn btn-ghost" onclick="scrollToSection('contato')">Fazer pergunta</button>
+          </div>
+
+          <div style="margin-top:12px" class="small muted">
+            <strong>Como comprar:</strong> clique em "Comprar pelo WhatsApp", escolha cor/tamanho e confirme o pagamento. Frete calculado por cep.
+          </div>
+        </div>
+
+        <!-- Outros produtos -->
+        <h3 id="produtos" style="margin-top:22px; margin-bottom:8px">Mais produtos</h3>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
+          <!-- cards pequenos: substitua imagens e textos -->
+          <div class="card" style="padding:10px;">
+            <img src="img/ariel.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:160px" alt="Personagem Ariel do filme A pequena Sereia" onclick="openLightbox(this)" style="grid-column:span 2; height:360px;">
+            <div style="margin-top:8px"><b>Ariel - A pequena sereia</b></div>
+            <div class="muted small">R$ 39,90</div>
+            <div style="margin-top:8px"><a class="btn btn-primary" href="https://wa.me/5511913303589?text=Quero+Produto+A+pequena+sereia" target="_blank">Comprar</a></div>
+          </div>
+
+          <div class="card" style="padding:10px;">
+            <img src="img/capivara.jpg" style="width:100%; border-radius:8px; object-fit:cover; height:160px" alt="Capivara de crochê" onclick="openLightbox(this)" style="grid-column:span 2; height:360px;">
+            <div style="margin-top:8px"><b>Capivara</div>
+            <div class="muted small">R$ 54,90</div>
+            <div style="margin-top:8px"><a class="btn btn-primary" href="https://wa.me/5511913303589?text=Quero+Produto+capivara" target="_blank">Comprar</a></div>
+          </div>
+
+          <div class="card" style="padding:10px;">
+            <img src="img/Raposa.png" style="width:100%; border-radius:8px; object-fit:cover; height:160px" alt="Raposa de crochê - imagem criada com inteligência artificial" onclick="openLightbox(this)" style="grid-column:span 2; height:360px;">
+            <div style="margin-top:8px"><b>Raposa</b></div>
+            <div class="muted small">R$ 64,90</div>
+            <div style="margin-top:8px"><a class="btn btn-primary" href="https://wa.me/5511913303589?text=Quero+Produto+raposa" target="_blank">Comprar</a></div>
+          </div>
+        </div>
+         <!-- Testimonials -->
+        <h3 id="depoimentos" style="margin-top:22px; margin-bottom:8px">Depoimentos</h3>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>"Amei! Chegou rápido e a embalagem é uma graça — recomendo."</p>
+            <div class="muted small" style="margin-top:8px">— Maria, SP</div>
+          </div>
+          <div class="testimonial">
+            <p>"Qualidade excelente, delicadeza no acabamento."</p>
+            <div class="muted small" style="margin-top:8px">— Joana, RJ</div>
+            </div>
+          <div class="testimonial">
+            <p>"Simplesmente amei, trabalho muito bem feito e chegou super rápido."</p>
+            <div class="muted small" style="margin-top:8px">— Helena, BA</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Sidebar seller info -->
+      <aside>
+        <div class="card">
+          <div class="seller">
+            <img src="img/Logo.png" alt="Logo do vendedor">
+            <div>
+              <h3>Misa & Clarinha</h3>
+              <p class="muted small">Peças artesanais • Atendimento via WhatsApp</p>
+              <div style="margin-top:8px">
+                <a class="btn btn-primary" href="https://wa.me/5511913303589?text=Ol%C3%A1%2C+quero+saber+mais" target="_blank">Fale conosco</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="item">
+              <div>
+                <b>Formas de pagamento</b>
+                <div class="muted small">Pix, Cartão (link de pagamento), Transferência</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <b>Frete</b>
+                <div class="muted small">Envio para todo Brasil — calcular por CEP</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div>
+                <b>Prazo</b>
+                <div class="muted small">Produção: 1-3 dias úteis | Entrega: 2-7 dias</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="muted small">Siga nas redes</div>
+            <div class="socials">
+              <a href="https://www.instagram.com/misaeclarinha" target="_blank" rel="noopener">Instagram</a>
+              <a href="#" onclick="scrollToSection('contato')">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick FAQ -->
+        <div class="card" style="margin-top:14px">
+          <b>Dúvidas rápidas</b>
+          <div style="margin-top:8px" class="small muted">
+            • Troca e devolução: até 7 dias após recebimento.<br>
+            • Personalização: disponível — pergunte via WhatsApp.<br>
+            • Pedido corporativo: peça orçamento.<br>
+            • Embalagem para presente: opcional, grátis.<br>
+            • Para produto personalizado: consulte prazo de envio.
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer id="contato">
+      <div style="margin-top:10px">
+        <a href="https://www.instagram.com/misaeclarinha" target="_blank" rel="noopener" class="muted small">Instagram • @misaeclarinha</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Zoom">
+  </div>
+
+  <script>
+    // Lightbox
+    function openLightbox(img){
+      const lb = document.getElementById('lightbox');
+      const el = img instanceof HTMLImageElement ? img : img.target;
+      document.getElementById('lightboxImg').src = el.src;
+      lb.classList.add('show');
+    }
+    function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
+
+    // Smooth scroll helper
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(!el) return window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // Replace placeholders: basic dynamic example (optional)
+    // Você pode injetar dados via JSON e usar JS para montar cards dinamicamente.
+  </script>
+</body>
+</html>
