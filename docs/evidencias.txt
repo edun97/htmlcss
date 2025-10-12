@@ -1,1 +1,0 @@
-Evidências de testes: adicionar prints do validador W3C, prints de navegação entre páginas e testes do formulário.
