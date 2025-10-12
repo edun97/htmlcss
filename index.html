@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Misa e Clarinha — Amigurumi</title>
+  <meta name="description" content="Loja artesanal Misa e Clarinha — produtos feitos à mão. Veja catálogo, depoimentos e compre via WhatsApp.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <a href="index.html">
+        <img src="img/Logo.png" alt="Logo Misa & Clarinha" style="height:48px; width:auto; margin-right:12px;"></a>
+        <div class="logo">Misa & Clarinha</div>
+        <div>
+          <p class="muted"></p>
+        </div>
+      </div>
+      <nav>
+       <a href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="videos.html">Vídeos</a>
+        <a href="audios.html">Áudios</a>
+        <a href="faq.html">FAQ</a>
+        <a href="depoimentos.html">Depoimentos</a>
+        <a href="contato.html">Contato</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="historia.html">História do Amigurumi</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT: Product showcase -->
+      <section>
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+            <h1>Novidade!!!</h1>
+            <h2 class="title"><cite>Elementos - </cite>Kit Gota e Faísca</h2>
+            <div class="price">R$ 159,90</div>
+            </div>
+          </div>
+          <div class="gallery" style="margin-top:14px;">
+            <!-- substitua src pelas fotos reais -->
+            <img src="img/gota_faisca_filmes.jpg" alt="Kit composto pelos personagens do Filme Elementos, Faísca e Gota" onclick="openLightbox(this)" style="grid-column:span 2; height:360px;">
+          </div>
+          <p class="desc">
+            Clique na imagem para ampliar. <br><br>
+            Kit com dois personagens do filme <cite>Elementos</cite>, composto pelos personagens Gota e Faísca, lindos, não perca essa incrível promoção!
+          </p>
+          <div class="buy-row">
+            <!-- Link pro WhatsApp: ajuste o número com DDI+DDD sem espaços -->
+            <a class="btn btn-primary" href="https://wa.me/5511913303589?text=Ol%C3%A1%2C+Gostaria+de+comprar+gota+gota_faisca_filmes" target="_blank" rel="noopener">
+              Comprar pelo WhatsApp
+            </a>
+            </div>
+          <div style="margin-top:12px" class="small muted">
+            <strong>Como comprar:</strong> clique em "Comprar pelo WhatsApp", confirme o produto escolhido, nos informe seu CEP, para cálculo do Frete e confirme o pagamento. Frete calculado por cep.<br>
+            <strong>Formas de pagamento:</strong> PIX, transferência bancária, cartão de crédito (via link de pagamento).<br>
+            <strong>Estoque:</strong> pergunte via WhatsApp sobre estoque, assim o envio é feito imediatamente após o pagamento.<br>
+          </div>
+          </div>
+      </section>
+
+      <!-- RIGHT: Sidebar seller info -->
+      <aside>
+        <div class="card">
+          <div class="seller">
+            <img src="img/Logo.png" alt="Logo do vendedor">
+            <div>
+              <h3>Misa & Clarinha</h3>
+              <p class="muted small">Peças artesanais • Atendimento via WhatsApp</p>
+              <div style="margin-top:8px">
+                <a class="btn btn-primary" href="https://wa.me/5511913303589?text=Ol%C3%A1%2C+quero+saber+mais" target="_blank">Fale conosco</a>
+              </div>
+            </div>
+          </div>
+          
+        <!-- Quick FAQ -->
+        <div class="card" style="margin-top:14px">
+          <b>Dúvidas rápidas</b>
+          <div style="margin-top:8px" class="small muted">
+            • Troca e devolução: até 7 dias após recebimento.<br>
+            • Personalização: pergunte via WhatsApp.<br>
+            • Pedido corporativo: faça seu orçamento.<br>
+            • Embalagem para presente: opcional, consulte.<br>
+            • Para produto personalizado: consulte prazo de envio.<br>
+            • Os produtos são enviados de 24h a 72h (se produdo não for personalizado).<br>
+          </div>
+        </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer id="contato">
+      <p>&copy; Misa & Clarinha 2025. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+<!-- container do lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="img/Logo.png" alt="Logo Misa & Clarinha">
+</div>
+
+<script>
+function openLightbox(img) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  lightboxImg.src = img.src; // pega a mesma imagem da miniatura
+  lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+</body>
+</html>
