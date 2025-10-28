@@ -37,8 +37,6 @@
       width:64px; height:64px; border-radius:12px; background:transparent;
       display:flex; align-items:center; justify-content:center; font-weight:700; box-shadow:var(--shadow);
     }
-    .brand h1{font-size:20px; margin:0; line-height:1}
-    .brand p{margin:0; color:var(--muted); font-size:13px}
     nav a{margin-left:14px; color:var(--muted); text-decoration:none; font-size:14px; font-weight:bold; text-decoration: underline;}
     /* --- Layout do Menu --- */
     .grid{display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:start}
@@ -50,7 +48,6 @@
     .title{font-size:22px; margin:10px 0 6px}
     .price{font-size:20px; color:var(--accent); font-weight:700}
     .desc{color:var(--muted); line-height:1.5; margin:12px 0; text-align: center;}
-    .buy-row{display:flex; gap:10px; margin-top:14px; text-align: center;}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 16px; border-radius:12px; border:0; cursor:pointer;
@@ -58,8 +55,6 @@
       box-shadow: 0 6px 18px rgba(16,24,40,0.06);
     }
     .btn-primary{background:var(--accent); color:white;}
-    .info-list{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
-    .chip{background:#FFF7ED; color:#92400E; padding:8px 10px; border-radius:999px; font-size:13px}
     /* --- Caixa direita --- */
     aside .seller{display:flex; gap:12px; align-items:center}
     .seller img{width:64px;height:64px;border-radius:12px; object-fit:cover}
@@ -86,20 +81,6 @@
     h2{
       text-align: center;
       font-weight: bold;
-      text-decoration: underline;
-    }
-    .historia h1{
-      text-align: center;
-      font-weight: bold;
-      font-size: 28px;
-      margin-bottom: 20px;
-      text-decoration: underline;
-    }
-    .sobre{
-      text-align: center;
-      font-weight: bold;
-      font-size: 28px;
-      margin-bottom: 20px;
       text-decoration: underline;
     }
     /** Localização CSS **/
@@ -146,10 +127,6 @@ select { /*Seletor de Atributo (usa colchetes []) */
     margin-bottom: 10px; /* Adiciona espaço de 10px abaixo do campo */
 }
 
-select { /* Seletor de Tag (elemento) */
-    cursor: pointer; /* Muda o cursor para "mãozinha" ao passar sobre o select */
-}
-
 input[type="checkbox"] { /*Seletor de Atributo (usa colchetes []) */
     width: 18px; /* Define a largura do checkbox */
     height: 18px; /* Define a altura do checkbox */
@@ -157,13 +134,7 @@ input[type="checkbox"] { /*Seletor de Atributo (usa colchetes []) */
     cursor: pointer; /* Muda o cursor para "mãozinha" ao passar sobre o checkbox */
     accent-color: #495c73; /* Define a cor do checkbox quando marcado (azul acinzentado) */
 }
- input[type="checkbox"] { /*Seletor de Atributo (usa colchetes []) */
-    width: 18px; /* Define a largura do checkbox */
-    height: 18px; /* Define a altura do checkbox */
-    margin-right: 10px; /* Adiciona espaço de 10px à direita do checkbox */
-    cursor: pointer; /* Muda o cursor para "mãozinha" ao passar sobre o checkbox */
-    accent-color: #495c73; /* Define a cor do checkbox quando marcado (azul acinzentado) */
-}
+
 
 .checkbox-item { /* Seletor de Class (usa ponto .) */
     display: flex; /* Ativa o layout flexível (flexbox) */
@@ -197,13 +168,12 @@ button[type="submit"] {  /*Seletor de Atributo (usa colchetes []) */
 /** Spotify css **/
 .spotify-embed {
   border: 0;           
-  border-radius: 12px; 
+  border-radius: 12px; /* Arredonda os cantos com raio de 10px */
   width: 320px;         
   height: 152px;        
 }
-.youtube-embed {
-  border: 0;           
-  border-radius: 12px; 
-  width: 560px;         
-  height: 315px;        
+/** Details do FAQ **/
+details:hover{
+  cursor: pointer;
+  color: #D97706;
 }
