@@ -47,8 +47,17 @@
         <input type="email" id="email" name="email" placeholder="seu@email.com" required>
 
         <label for="telefone">Telefone-WhatsApp</label>
-        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
-               required pattern="\(\d{2}\) \d{5}-\d{4}" title="Formato: (99) 99999-9999">
+        <input type="tel" 
+        id="telefone" 
+        name="telefone" 
+        placeholder="Digite seu telefone (somente números)" 
+        required 
+        maxlength="11" 
+        pattern="\d{10,11}" 
+        inputmode="numeric" 
+        title="Digite apenas números, com DDD. Exemplo: 11987654321"
+        oninput="this.value = this.value.replace(/\D/g, '')">
+
 
         <label for="interesse">Interesse Principal</label>
         <select name="interesse" id="interesse" required>
