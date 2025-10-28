@@ -9,5 +9,11 @@ Divisão de funções:
 - Camila: História do amigurumi
 - Otávio: Produtos personalizados
 - Franciely: Videos, tema, depoimentos (Lider)
-- 
+
+
+* Alterações recentes: 28/10/2025
+  Atualização do html do FAQ (método novo do Prof Cid, livro);
+  Atualização do Style.css, adicionando estilo no FAQ, limpando arquivo.
+
+  
 
