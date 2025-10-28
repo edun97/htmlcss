@@ -8,4 +8,6 @@ Divisão de funções:
 - Victor: Sobre nós
 - Camila: História do amigurumi
 - Otávio: Produtos personalizados (você)
+- Franciely: Videos, tema, depoimentos
+- 
 
