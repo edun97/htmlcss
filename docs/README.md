@@ -7,7 +7,7 @@ Divisão de funções:
 - Eduardo: Index, Depoimentos, Produtos (filmes), Evidências de testes, juntar os html e tentar melhorar com css.
 - Victor: Sobre nós
 - Camila: História do amigurumi
-- Otávio: Produtos personalizados (você)
+- Otávio: Produtos personalizados
 - Franciely: Videos, tema, depoimentos (Lider)
 - 
 
