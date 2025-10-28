@@ -13,7 +13,9 @@ Divisão de funções:
 
 * Alterações recentes: 28/10/2025
   Atualização do html do FAQ (método novo do Prof Cid, livro);
-  Atualização do Style.css, adicionando estilo no FAQ, limpando arquivo.
+  Atualização do Style.css, adicionando estilo no FAQ, limpando arquivo;
+  Atualização newsletter.html, código para corrigir campo telefone, autorizar apenas números.
+  
 
   
 
