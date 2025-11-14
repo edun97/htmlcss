@@ -16,6 +16,26 @@ Divisão de funções:
 - Atualização do Style.css, adicionando estilo no FAQ, limpando arquivo;
 - Atualização newsletter.html, código para corrigir campo telefone, autorizar apenas números.
   
+----------------------------------------------------------------------------------------------
+Fizemos a apresentação do trabalho dia 03/10/2025
+----------------------------------------------------------------------------------------------
+08 e 09/10/2025
+Atualização do site em php, colocamos módulo admin para que o cliente possa fazer as alterações no site.
+ - Adicionar, excluir ou alterar Produtos;
+ - Alterar valores;
+ - Alterar logo, nome do site; e
+ - Adicionar, alterar ou excluir Depoimentos.
+
+----------------------------------------------------------------------------------------------
+
+10/10/2025
+
+Colocamos no ar o site, porém em outra hospedegam:
+https://www.eduardosonego.com/amigurumi/
+
+Nesta data também alteramos as cores dos botões comprar, que antes eram laranjas, e também o valor e agora
+ambos são lilás claro. #7F95CA
+
 
   
 
