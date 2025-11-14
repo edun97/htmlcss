@@ -1,0 +1,345 @@
+/* --- ESTILOS GERAIS (MOBILE FIRST) --- */
+:root {
+    --color-primary: #00ff00; /* Verde Limão Neon */
+    --color-secondary: #1e1e1e; /* Fundo Secundário */
+    --color-background: #000000; /* Preto Puro */
+    --color-text: #ffffff;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container principal para limitar a largura em telas grandes */
+.container {
+    padding: 20px; /* Padding padrão para mobile */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* Títulos */
+h1 {
+    color: var(--color-primary);
+    font-size: 2em;
+    margin: 10px 0 5px;
+}
+
+h2 {
+    color: var(--color-text);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    color: var(--color-primary);
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Centralização */
+.center {
+    text-align: center;    
+}
+
+/* --- NAVEGAÇÃO E MENU HAMBÚRGUER --- */
+
+/* Checkbox oculto para o menu hamburguer */
+#menu-toggle {
+    display: none;
+}
+
+/* Ícone Hambúrguer (Mobile) */
+.hamburger-icon {
+    display: block;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* NAV Principal (Oculto por padrão no mobile) */
+nav {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Esconde o menu fora da tela */
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-secondary);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ação de abrir o menu */
+#menu-toggle:checked ~ nav {
+    right: 0;
+}
+
+/* Animação do ícone para 'X' */
+#menu-toggle:checked + .hamburger-icon .bar:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + .hamburger-icon .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+#menu-toggle:checked + .hamburger-icon .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* --- HEADER --- */
+
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+
+header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid var(--color-primary);
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* --- FOOTER --- */
+
+footer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os ícones quebrem a linha em telas muito pequenas */
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-secondary);
+    margin-top: 40px;
+}
+
+footer a {
+    margin: 10px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+footer p {
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+
+/* --- SEÇÃO PROJECTS (projects.html) --- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão de uma coluna para mobile */
+    gap: 30px;
+    margin: 40px 0;
+    padding: 0;
+}
+
+.project-card {
+    background-color: var(--color-secondary); 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+.project-card .info {
+    padding: 15px;
+    flex-grow: 1; /* Garante que os cards tenham altura similar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    margin: 10px 0;
+    color: var(--color-primary);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: var(--color-text);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.project-card .btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.project-card .btn:hover {
+    background-color: #00e600;
+}
+
+/* --- SEÇÃO CONTACT (contact.html) --- */
+
+form {
+    max-width: 400px;
+    margin: 30px auto 0; 
+    padding: 20px;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="email"], 
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    background-color: #333;
+    color: var(--color-text);
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+}
+
+button[type="submit"] {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #00e600;
+}
+
+
+/* --- MEDIA QUERIES (TABLET/DESKTOP) --- */
+
+@media (min-width: 600px) {
+    .container {
+        padding: 40px 50px;
+    }
+    
+    /* NAV (Desktop/Tablet): Display horizontal e fixo */
+    .hamburger-icon {
+        display: none; /* Oculta ícone */
+    }
+
+    nav {
+        position: static; /* Tira do fixed */
+        width: auto;
+        height: auto;
+        background-color: var(--color-background);
+        box-shadow: none;
+        padding-top: 0;
+        right: auto;
+        transition: none;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--color-secondary);
+    }
+    
+    nav ul li a {
+        padding: 5px 10px;
+        border-bottom: none;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
